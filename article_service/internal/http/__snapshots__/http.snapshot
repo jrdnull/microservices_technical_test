@@ -1,0 +1,204 @@
+/* snapshot: TestGetUserFeed/filtered_by_user_tags */
+HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json; charset=UTF-8
+
+{
+  "articles": [
+    {
+      "id": 1,
+      "tags": [
+        {
+          "id": 1,
+          "name": "1"
+        },
+        {
+          "id": 1,
+          "name": "2"
+        }
+      ],
+      "timestamp": "0001-01-01T00:00:00Z",
+      "title": "1"
+    },
+    {
+      "id": 1,
+      "tags": [
+        {
+          "id": 1,
+          "name": "1"
+        }
+      ],
+      "timestamp": "0001-01-01T00:00:00Z",
+      "title": "2"
+    }
+  ]
+}
+
+/* snapshot: TestGetUserFeed/panic */
+HTTP/1.1 500 Internal Server Error
+Connection: close
+Content-Type: application/json; charset=UTF-8
+
+{
+  "error": "Internal Server Error"
+}
+
+/* snapshot: TestGetUserFeed/repo_error */
+HTTP/1.1 500 Internal Server Error
+Connection: close
+Content-Type: application/json; charset=UTF-8
+
+{
+  "error": "Internal Server Error"
+}
+
+/* snapshot: TestGetUserFeed/unauthenticated */
+HTTP/1.1 401 Unauthorized
+Connection: close
+Content-Type: application/json; charset=UTF-8
+
+{
+  "error": "unauthorized"
+}
+
+/* snapshot: TestListArticles/all_tags */
+HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json; charset=UTF-8
+
+{
+  "articles": [
+    {
+      "id": 1,
+      "tags": [
+        {
+          "id": 1,
+          "name": "1"
+        },
+        {
+          "id": 1,
+          "name": "2"
+        }
+      ],
+      "timestamp": "0001-01-01T00:00:00Z",
+      "title": "1"
+    }
+  ]
+}
+
+/* snapshot: TestListArticles/all_tags#01 */
+HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json; charset=UTF-8
+
+{
+  "articles": [
+    {
+      "id": 1,
+      "tags": [
+        {
+          "id": 1,
+          "name": "1"
+        },
+        {
+          "id": 1,
+          "name": "2"
+        }
+      ],
+      "timestamp": "0001-01-01T00:00:00Z",
+      "title": "1"
+    },
+    {
+      "id": 1,
+      "tags": [
+        {
+          "id": 1,
+          "name": "1"
+        }
+      ],
+      "timestamp": "0001-01-01T00:00:00Z",
+      "title": "2"
+    }
+  ]
+}
+
+/* snapshot: TestListArticles/all_tags,_incorrect_amount */
+HTTP/1.1 400 Bad Request
+Connection: close
+Content-Type: application/json; charset=UTF-8
+
+{
+  "error": "all_tags requires exactly 2 ids"
+}
+
+/* snapshot: TestListArticles/all_tags,_invaid */
+HTTP/1.1 400 Bad Request
+Connection: close
+Content-Type: application/json; charset=UTF-8
+
+{
+  "error": "tag filter: invalid id"
+}
+
+/* snapshot: TestListArticles/panic */
+HTTP/1.1 500 Internal Server Error
+Connection: close
+Content-Type: application/json; charset=UTF-8
+
+{
+  "error": "Internal Server Error"
+}
+
+/* snapshot: TestListArticles/repo_error */
+HTTP/1.1 500 Internal Server Error
+Connection: close
+Content-Type: application/json; charset=UTF-8
+
+{
+  "error": "Internal Server Error"
+}
+
+/* snapshot: TestListArticles/unauthenticated */
+HTTP/1.1 401 Unauthorized
+Connection: close
+Content-Type: application/json; charset=UTF-8
+
+{
+  "error": "unauthorized"
+}
+
+/* snapshot: TestListArticles/unfiltered */
+HTTP/1.1 200 OK
+Connection: close
+Content-Type: application/json; charset=UTF-8
+
+{
+  "articles": [
+    {
+      "id": 1,
+      "tags": [
+        {
+          "id": 1,
+          "name": "1"
+        },
+        {
+          "id": 1,
+          "name": "2"
+        }
+      ],
+      "timestamp": "0001-01-01T00:00:00Z",
+      "title": "1"
+    },
+    {
+      "id": 1,
+      "tags": [
+        {
+          "id": 1,
+          "name": "1"
+        }
+      ],
+      "timestamp": "0001-01-01T00:00:00Z",
+      "title": "2"
+    }
+  ]
+}

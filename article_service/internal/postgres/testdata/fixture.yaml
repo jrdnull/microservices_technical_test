@@ -1,0 +1,30 @@
+- model: Tag
+  rows:
+    - _id: crime
+      name: crime
+    - _id: sports
+      name: sports
+    - _id: business
+      name: business
+
+- model: Article
+  rows:
+    - _id: article1
+      title: Redbull Hardline Results
+      timestamp: 2006-01-03T00:00:00Z
+    - _id: article2
+      title: Redbull Hardline - Bike Thieves!
+      timestamp: 2006-01-02T00:00:00Z
+    - title: Mystery
+      timestamp: 2006-01-01T00:00:00Z
+
+- model: ArticleTag
+  rows:
+    - article_id: '{{ $.Article.article1.ID }}'
+      tag_id: '{{ $.Tag.sports.ID }}'
+    - article_id: '{{ $.Article.article2.ID }}'
+      tag_id: '{{ $.Tag.sports.ID }}'
+    - article_id: '{{ $.Article.article2.ID }}'
+      tag_id: '{{ $.Tag.crime.ID }}'
+    - article_id: '{{ $.Article.article2.ID }}'
+      tag_id: '{{ $.Tag.business.ID }}'

@@ -1,0 +1,16 @@
+syntax = "proto3";
+
+package newsfeed.user;
+option go_package = "github.com/jrdnull/microservices_technical_test/user_service/userpb";
+
+service UserService {
+  rpc GetNewsFeedTags(GetNewsFeedTagsRequest) returns (GetNewsFeedTagsResponse) {}
+}
+
+message GetNewsFeedTagsRequest {
+  int64 id = 1;
+}
+
+message GetNewsFeedTagsResponse {
+  repeated int64 tag_ids = 1;
+}

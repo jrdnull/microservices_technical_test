@@ -1,0 +1,18 @@
+- model: User
+  rows:
+    - _id: user1
+      email: user1@example.org
+    - _id: user2
+      email: user2@example.org
+
+- model: UserNewsFeed
+  rows:
+    - tag_id: 1
+      user_id: '{{ $.User.user1.ID }}'
+    - tag_id: 2
+      user_id: '{{ $.User.user1.ID }}'
+    - tag_id: 3
+      user_id: '{{ $.User.user1.ID }}'
+
+    - tag_id: 3
+      user_id: '{{ $.User.user2.ID }}'
